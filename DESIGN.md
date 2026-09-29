@@ -78,21 +78,22 @@ Deux polices, pas une de plus.
 
 - **Newsreader** (Production Type, fonderie parisienne) : titres et chapôs. Graisses
   400 et 500. Pas d'italique décoratif.
-- **Atkinson Hyperlegible Next** (Braille Institute) : texte courant, interface, et
-  **tous les chiffres**. Elle a été dessinée pour qu'aucun caractère ne se confonde
-  avec un autre. Graisses 400 et 600. Chiffres tabulaires (`tnum`) partout où des
-  montants s'alignent.
+- **Schibsted Grotesk** (dessinée pour le groupe de presse Schibsted) : texte courant,
+  interface, et **tous les chiffres**. Une grotesque de journal, faite pour lire des
+  titres et des chiffres. Zéro non barré, pour que les prix ne ressemblent pas à du
+  code. Graisses 400 et 600. Chiffres tabulaires (`tnum`) partout où des montants
+  s'alignent.
 
 | Rôle | Classe | Police | Taille | Interligne | Graisse |
 |---|---|---|---|---|---|
-| Titre principal | `.s-h1` | Newsreader | 40 → 76 px | 1,04 | 400 |
+| Titre principal | `.s-h1` | Newsreader | 40 → 68 px | 1,04 | 400 |
 | Titre de section | `.s-h2` | Newsreader | 32 → 52 px | 1,08 | 400 |
 | Titre de bloc | `.s-h3` | Newsreader | 24 px | 1,2 | 500 |
 | Chapô | `.s-lead` | Newsreader | 20 → 22 px | 1,45 | 400 |
-| Texte | `.s-body` | Atkinson | 17 px | 1,6 | 400 |
-| Interface, bouton | (utilitaires) | Atkinson | 16 px | 1,3 | 600 |
-| Légende | `.s-small` | Atkinson | 14 px | 1,45 | 400 |
-| Mention | `.s-fine` | Atkinson | 13 px | 1,45 | 400 |
+| Texte | `.s-body` | Schibsted | 17 px | 1,6 | 400 |
+| Interface, bouton | (utilitaires) | Schibsted | 16 px | 1,3 | 600 |
+| Légende | `.s-small` | Schibsted | 14 px | 1,45 | 400 |
+| Mention | `.s-fine` | Schibsted | 13 px | 1,45 | 400 |
 
 Rien sous 13 px. Casse de phrase partout, jamais de capitales interlettrées.
 Mesure de lecture : 34 em maximum pour un paragraphe.

@@ -4,6 +4,7 @@
    sécurité à chaque fin de lot. */
 @import "tailwindcss" source("../");
 @import "../design/tokens.css";
+@import "../design/site.css";
 
 /* =============================================================================
    ESTIO — SYSTÈME « FOCALE » v2 · couche applicative
@@ -66,6 +67,24 @@
   /* --- Typographie ------------------------------------------------------- */
   --font-sans: var(--font-grotesk), "Helvetica Neue", Arial, sans-serif;
   --font-mono: var(--font-mono-jb), ui-monospace, "SF Mono", monospace;
+
+  /* --- Site public · DESIGN.md (valeurs dans design/site.css) ------------ */
+  --color-encre: var(--encre);
+  --color-encre-2: var(--encre-2);
+  --color-encre-3: var(--encre-3);
+  --color-bleu: var(--bleu);
+  --color-bleu-fonce: var(--bleu-fonce);
+  --color-bleu-voile: var(--bleu-voile);
+  --color-papier: var(--papier);
+  --color-retrait: var(--retrait);
+  --color-feuille: var(--feuille);
+  --color-filet: var(--filet);
+  --color-verdict-bon: var(--verdict-bon);
+  --color-verdict-creuser: var(--verdict-creuser);
+  --color-verdict-faible: var(--verdict-faible);
+  --radius-site: var(--rayon);
+  --font-serif: var(--font-newsreader), Georgia, serif;
+  --font-texte: var(--font-schibsted), system-ui, sans-serif;
 }
 
 /* =============================================================================
@@ -84,27 +103,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-}
-
-/* =============================================================================
-   GRAIN DE FILM — VITRINE UNIQUEMENT.
-   Il empêchait le noir d'être plat, ce qui était juste. Mais il salit les
-   aplats clairs, et à la densité d'un CRM il ajoute du bruit là où on cherche
-   de la précision. Il devient donc une classe, que seule la vitrine applique.
-   ========================================================================== */
-.grain {
-  position: relative;
-}
-.grain::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  pointer-events: none;
-  background-image: var(--grain);
-  background-size: 180px 180px;
-  opacity: 0.026;
-  mix-blend-mode: overlay;
 }
 
 ::selection {
@@ -144,18 +142,6 @@ body {
    ÉCHELLE TYPOGRAPHIQUE
    ========================================================================== */
 
-.t-hero {
-  font-size: clamp(3.25rem, 10.5vw, 10.5rem);
-  line-height: 0.86;
-  letter-spacing: -0.048em;
-  font-weight: 500;
-}
-.t-display {
-  font-size: clamp(2.4rem, 6vw, 5.25rem);
-  line-height: 0.95;
-  letter-spacing: -0.036em;
-  font-weight: 500;
-}
 .t-title {
   font-size: clamp(1.7rem, 3.2vw, 2.75rem);
   line-height: 1.04;
@@ -168,19 +154,12 @@ body {
   letter-spacing: -0.016em;
   font-weight: 500;
 }
-.t-lead {
-  font-size: clamp(1.0625rem, 1.2vw, 1.25rem);
-  line-height: 1.55;
-  letter-spacing: -0.005em;
-  color: var(--text-2);
-}
 
 /* -----------------------------------------------------------------------------
    ÉTIQUETTE — le changement le plus rentable de la v2.
    En v1 c'était une petite capitale à 11 px avec 0,13em d'interlettrage, répétée
    des dizaines de fois par écran : illisible, et ça criait. Désormais une
    étiquette est simplement du texte, en casse de phrase, à une taille qu'on lit.
-   `.t-caps` reste disponible pour les rares surtitres de la vitrine.
    -------------------------------------------------------------------------- */
 .t-label {
   font-size: 0.75rem;
@@ -204,14 +183,6 @@ body {
 .t-lg   { font-size: 20px; line-height: 1.3; letter-spacing: -0.018em; font-weight: 500; }
 .t-xl   { font-size: 28px; line-height: 1.2; letter-spacing: -0.026em; font-weight: 500; }
 
-.t-caps {
-  font-size: 0.6875rem;
-  line-height: 1;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-  font-weight: 500;
-  color: var(--text-3);
-}
 
 /* Tout chiffre passe par là : chasses fixes, colonnes alignées. */
 .num {
@@ -221,21 +192,7 @@ body {
   letter-spacing: -0.02em;
 }
 
-.num-hero {
-  font-family: var(--font-mono-jb), ui-monospace, monospace;
-  font-variant-numeric: tabular-nums;
-  font-feature-settings: "tnum" 1, "zero" 1;
-  font-size: clamp(2.25rem, 3.6vw, 3.5rem);
-  line-height: 0.92;
-  letter-spacing: -0.05em;
-  font-weight: 500;
-}
 
-.t-outline {
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 1px var(--line-strong);
-}
 
 /* Le calage focal (flou de 9 px à l'entrée) vivait ici. Retiré de l'outil : un
    flou à chaque rendu de liste donne une impression de lenteur dans un logiciel
@@ -448,46 +405,14 @@ body {
    RAILS & MASQUES
    ========================================================================== */
 
-.fade-x {
-  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-}
-.fade-b {
-  mask-image: linear-gradient(180deg, #000 55%, transparent);
-}
-
 .rail-x {
   overflow-x: auto;
   overscroll-behavior-x: contain;
 }
 
 /* =============================================================================
-   MOUVEMENTS D'AMBIANCE — vitrine uniquement.
+   RESPIRATION — indicateur d'enregistrement de l'outil.
    ========================================================================== */
-
-@keyframes drift {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-  50% {
-    transform: translate3d(0, -12px, 0);
-  }
-}
-.animate-drift {
-  animation: drift 7s var(--e-swing) infinite;
-}
-
-@keyframes marquee-x {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    transform: translate3d(-50%, 0, 0);
-  }
-}
-.animate-marquee {
-  animation: marquee-x 46s linear infinite;
-}
 
 @keyframes breathe {
   0%,
@@ -500,41 +425,6 @@ body {
 }
 .animate-breathe {
   animation: breathe 2.6s var(--e-swing) infinite;
-}
-
-@keyframes scan-down {
-  0% {
-    transform: translateY(-2px);
-    opacity: 0;
-  }
-  35% {
-    opacity: 1;
-  }
-  85% {
-    transform: translateY(9px);
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-.animate-scan {
-  animation: scan-down 2s var(--e-focal) infinite;
-}
-
-/* Lenis — réservation de scroll. */
-html.lenis,
-html.lenis body {
-  height: auto;
-}
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-.lenis.lenis-stopped {
-  overflow: hidden;
 }
 
 /* =============================================================================

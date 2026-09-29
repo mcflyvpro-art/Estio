@@ -1,0 +1,315 @@
+/* =============================================================================
+   ESTIO · SITE PUBLIC
+   Valeurs de DESIGN.md. Aucune couleur n'est écrite en dur dans un composant du
+   site : tout passe par ces jetons, exposés à Tailwind dans `globals.css`
+   (`bg-papier`, `text-encre`, `text-bleu`, `rounded-site`…).
+   ========================================================================== */
+
+:root {
+  /* Principale et accent */
+  --encre: #17191c;
+  --bleu: #23408e;
+  --bleu-fonce: #1a3170;
+  --bleu-voile: #e9edf6;
+
+  /* Neutres */
+  --papier: #fafaf7;
+  --retrait: #f1f0ec;
+  --feuille: #ffffff;
+  --filet: #dedcd5;
+  --encre-2: #474b52;
+  --encre-3: #63676e;
+
+  /* Verdict : aperçus du produit uniquement */
+  --verdict-bon: #28794d;
+  --verdict-creuser: #8f621e;
+  --verdict-faible: #bb4139;
+
+  /* Forme */
+  --rayon: 6px;
+}
+
+/* -----------------------------------------------------------------------------
+   Le site public est toujours clair, même si l'outil a été réglé en sombre
+   (réglage mémorisé sur <html> par ThemeScript).
+
+   `.site` est posé sur l'enfant direct de <body> par `(marketing)/layout.tsx`.
+   `:root:has(> body > .site)` étend le réglage jusqu'à <html>, pour que le fond
+   de rebond et la barre de défilement native restent clairs eux aussi.
+
+   Les jetons de l'outil sont réaffectés ici : les rares primitives partagées
+   (champs de formulaire, bandeaux) suivent ainsi DESIGN.md sans être dupliquées.
+   -------------------------------------------------------------------------- */
+.site,
+:root:has(> body > .site) {
+  color-scheme: light;
+
+  --canvas: var(--papier);
+  --sunken: var(--retrait);
+  --surface: var(--feuille);
+  --surface-hover: var(--retrait);
+  --surface-active: var(--filet);
+
+  --line: var(--filet);
+  --line-soft: var(--filet);
+  --line-strong: var(--encre-3);
+
+  --text: var(--encre);
+  --text-2: var(--encre-2);
+  --text-3: var(--encre-3);
+  --text-4: var(--encre-3);
+
+  --ink: var(--encre);
+  --ink-fg: var(--feuille);
+  --accent: var(--bleu);
+  --accent-fg: var(--feuille);
+  --accent-soft: var(--bleu-voile);
+  --accent-line: var(--bleu);
+  --accent-hot: var(--bleu-fonce);
+  --accent-glow: transparent;
+
+  --good: var(--verdict-bon);
+  --mid: var(--verdict-creuser);
+  --risk: var(--verdict-faible);
+  --danger: var(--verdict-faible);
+
+  --shadow-1: none;
+  --shadow-2: none;
+  --shadow-3: none;
+  --shadow-4: none;
+
+  --r-sm: var(--rayon);
+  --r-md: var(--rayon);
+  --r-lg: var(--rayon);
+  --r-xl: var(--rayon);
+}
+
+:root:has(> body > .site) {
+  background: var(--papier);
+}
+
+/* Les polices ne sont chargées que par la vitrine : leurs variables n'existent
+   que sous `.site`, et les primitives partagées de l'outil y sont redirigées. */
+.site {
+  --font-grotesk: var(--font-schibsted);
+  --font-mono-jb: var(--font-schibsted);
+
+  background: var(--papier);
+  color: var(--encre);
+  font-family: var(--font-schibsted), system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  font-feature-settings: normal;
+}
+
+.site ::selection {
+  background: var(--bleu);
+  color: var(--feuille);
+}
+
+.site :focus-visible {
+  outline: 2px solid var(--bleu);
+  outline-offset: 2px;
+  border-radius: var(--rayon);
+}
+
+/* =============================================================================
+   ÉCHELLE TYPOGRAPHIQUE · DESIGN.md §3
+   ========================================================================== */
+
+.s-h1,
+.s-h2,
+.s-h3,
+.s-lead {
+  font-family: var(--font-newsreader), Georgia, serif;
+  font-optical-sizing: auto;
+  text-wrap: balance;
+}
+
+.s-h1 {
+  font-size: clamp(2.5rem, 1.5rem + 2.9vw, 4.25rem);
+  line-height: 1.04;
+  letter-spacing: -0.018em;
+  font-weight: 400;
+}
+
+.s-h2 {
+  font-size: clamp(2rem, 1.45rem + 2.3vw, 3.25rem);
+  line-height: 1.08;
+  letter-spacing: -0.014em;
+  font-weight: 400;
+}
+
+.s-h3 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.008em;
+  font-weight: 500;
+}
+
+.s-lead {
+  font-size: clamp(1.25rem, 1.15rem + 0.3vw, 1.375rem);
+  line-height: 1.45;
+  font-weight: 400;
+  color: var(--encre-2);
+  text-wrap: pretty;
+}
+
+.s-body {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--encre-2);
+  text-wrap: pretty;
+}
+
+.s-small {
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.s-fine {
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+/* Tout montant qui doit s'aligner sur une colonne. */
+.s-num {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* =============================================================================
+   LIENS DE TEXTE · bleus et soulignés
+   ========================================================================== */
+
+.s-link {
+  color: var(--bleu);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 150ms ease, text-decoration-thickness 150ms ease;
+}
+.s-link:hover {
+  color: var(--bleu-fonce);
+  text-decoration-thickness: 2px;
+}
+
+/* =============================================================================
+   MISE EN PAGE
+   ========================================================================== */
+
+.s-container {
+  width: 100%;
+  max-width: calc(1200px + 2 * var(--s-gutter));
+  margin-inline: auto;
+  padding-inline: var(--s-gutter);
+}
+
+.site {
+  --s-gutter: 24px;
+}
+@media (min-width: 1024px) {
+  .site {
+    --s-gutter: 48px;
+  }
+}
+
+.s-section {
+  padding-block: 96px;
+}
+@media (min-width: 1024px) {
+  .s-section {
+    padding-block: 128px;
+  }
+}
+
+/* Un ancrage ne doit pas finir sous l'en-tête collant (64 px). */
+.site [id] {
+  scroll-margin-top: 88px;
+}
+
+/* =============================================================================
+   CURSEUR DE RÉGLAGE · poignée ronde (exception prévue au rayon unique)
+   ========================================================================== */
+
+.s-range {
+  --fill: 50%;
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 24px;
+  background: transparent;
+  cursor: pointer;
+}
+.s-range::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(
+    to right,
+    var(--bleu) 0 var(--fill),
+    var(--filet) var(--fill) 100%
+  );
+}
+.s-range::-moz-range-track {
+  height: 4px;
+  border-radius: 2px;
+  background: var(--filet);
+}
+.s-range::-moz-range-progress {
+  height: 4px;
+  border-radius: 2px;
+  background: var(--bleu);
+}
+.s-range::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  margin-top: -8px;
+  border-radius: 50%;
+  border: 2px solid var(--bleu);
+  background: var(--feuille);
+}
+.s-range::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--bleu);
+  background: var(--feuille);
+}
+.s-range:focus-visible {
+  outline: none;
+}
+.s-range:focus-visible::-webkit-slider-thumb {
+  outline: 2px solid var(--bleu);
+  outline-offset: 2px;
+}
+.s-range:focus-visible::-moz-range-thumb {
+  outline: 2px solid var(--bleu);
+  outline-offset: 2px;
+}
+
+/* =============================================================================
+   LE SEUL MOUVEMENT D'ENTRÉE DU SITE · DESIGN.md §7
+   Les annotations d'Estio se posent une à une sur l'annonce du haut de page.
+   En CSS pur : si le JavaScript ne charge pas, rien ne reste caché.
+   ========================================================================== */
+
+@keyframes s-annotation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.s-annotation {
+  animation: s-annotation 200ms ease-out both;
+  animation-delay: calc(300ms + var(--i, 0) * 120ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .s-annotation {
+    animation: none;
+  }
+}

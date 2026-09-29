@@ -1,25 +1,48 @@
-import { SmoothScroll } from "@/components/providers/SmoothScroll";
-import { MarketingChrome } from "@/components/layout/MarketingChrome";
+import { Newsreader, Schibsted_Grotesk } from "next/font/google";
+import { SiteHeader } from "@/components/site/SiteHeader";
+import { SiteFooter } from "@/components/site/SiteFooter";
 
 /**
- * La vitrine reste nocturne pendant que l'outil passe en clair.
+ * Le site public. Ses règles sont dans DESIGN.md, ses valeurs dans
+ * `design/site.css`.
  *
- * C'est possible parce que le thème sombre est défini sur un sélecteur
- * d'attribut nu — `[data-theme="dark"]` et non `:root[data-theme="dark"]` :
- * il s'applique donc à n'importe quel conteneur, pendant que <html> reste
- * clair. Le grain de film, retiré de l'outil, redevient ici ce qu'il était :
- * ce qui empêche le noir d'être plat.
+ * Les deux polices ne sont chargées qu'ici : l'outil n'en télécharge aucune.
+ * Newsreader porte les titres, Schibsted Grotesk porte le texte et tous les
+ * chiffres.
+ *
+ * `data-theme="light"` : le site reste clair même si l'outil a été réglé en
+ * sombre. `.site` doit rester un enfant direct de <body> (voir site.css).
  */
-export default function MarketingLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  axes: ["opsz"],
+  variable: "--font-newsreader",
+  display: "swap",
+});
+
+const schibsted = Schibsted_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-schibsted",
+  display: "swap",
+});
+
+export default function MarketingLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div data-theme="dark" className="grain min-h-screen bg-canvas text-text">
-      <SmoothScroll>
-        <MarketingChrome>{children}</MarketingChrome>
-      </SmoothScroll>
+    <div
+      data-theme="light"
+      className={`site ${newsreader.variable} ${schibsted.variable} flex min-h-screen flex-col`}
+    >
+      <a
+        href="#contenu"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-site focus:bg-feuille focus:px-4 focus:py-2 focus:text-encre"
+      >
+        Aller au contenu
+      </a>
+      <SiteHeader />
+      <main id="contenu" className="flex-1">
+        {children}
+      </main>
+      <SiteFooter />
     </div>
   );
 }

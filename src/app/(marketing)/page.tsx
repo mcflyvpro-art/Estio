@@ -1,48 +1,44 @@
 import type { Metadata } from "next";
-import { Hero } from "@/components/landing/Hero";
-import { PipelineForms } from "@/components/landing/PipelineForms";
-import { ProductShowcase } from "@/components/landing/ProductShowcase";
-import { KeyFigures } from "@/components/landing/KeyFigures";
-import { SectionCapture } from "@/components/landing/SectionCapture";
-import { SectionLevels } from "@/components/landing/SectionLevels";
-import { LiveScenario } from "@/components/landing/LiveScenario";
-import { SectionArbitrage } from "@/components/landing/SectionArbitrage";
-import { FinalCta } from "@/components/landing/FinalCta";
+import { Hero } from "@/components/site/accueil/Hero";
+import { MurAnnonces } from "@/components/site/accueil/MurAnnonces";
+import { Etapes } from "@/components/site/accueil/Etapes";
+import { CalculPose } from "@/components/site/accueil/CalculPose";
+import { Suivi } from "@/components/site/accueil/Suivi";
+import { Comparaison } from "@/components/site/accueil/Comparaison";
+import { Sources } from "@/components/site/accueil/Sources";
+import { AppelFinal } from "@/components/site/accueil/AppelFinal";
 
 export const metadata: Metadata = {
-  title: { absolute: "Estio — 200 annonces, une décision" },
+  title: { absolute: "Estio · Savoir si une annonce immobilière est un bon investissement" },
   description:
-    "Le pipeline de décision de l'investisseur immobilier. Capture universelle, données publiques, moteur de calcul déterministe, arbitrage entre finalistes. Du repérage à l'offre.",
+    "Ajoutez la capture d'une annonce. Estio calcule la mensualité, le loyer du secteur et ce qu'il vous restera chaque mois, puis suit toute votre recherche jusqu'à l'offre.",
 };
 
 /**
- * Page d'accueil — un récit en huit temps.
+ * L'accueil, dans l'ordre où un primo-investisseur se pose les questions :
  *
- *   Le champ focal     : deux cents annonces dans le noir, une seule nette.
- *   Le pipeline        : le désordre se trie sous le défilement.
- *   L'outil            : l'interface réelle, dans un cadre qui se redresse.
- *   L'entonnoir        : 200 → 20 → 3 → 1.
- *   La capture         : on photographie ce qu'aucun agrégateur ne voit.
- *   Les trois niveaux  : pourquoi une analyse Estio ne périme jamais.
- *   Le scénario        : les curseurs marchent, ici, tout de suite.
- *   L'arbitrage        : changez de priorité, le gagnant bascule.
+ *   1. Cet appartement vaut-il le coup ?        → l'annonce annotée, le verdict
+ *   2. Et toutes les autres annonces ?          → le mur, la mémoire de la recherche
+ *   3. Comment ça marche ?                      → quatre étapes, sommaire de la suite
+ *   4. D'où sort ce verdict ?                   → le calcul posé, jouable
+ *   5. Comment je m'organise ?                  → le suivi par étapes
+ *   6. Entre les deux derniers, lequel ?        → la comparaison par priorité
+ *   7. Est-ce que je peux vous croire ?         → les sources et les engagements
+ *   8. Je commence.                             → l'appel final
  *
- * Trois des huit sections sont jouables ou vivantes. C'est délibéré : un produit
- * dont l'argument est « ça recalcule en direct » doit le prouver avant
- * l'inscription, pas après.
+ * Règles visuelles et de ton : DESIGN.md.
  */
-export default function Home() {
+export default function Accueil() {
   return (
     <>
       <Hero />
-      <PipelineForms />
-      <ProductShowcase />
-      <KeyFigures />
-      <SectionCapture />
-      <SectionLevels />
-      <LiveScenario />
-      <SectionArbitrage />
-      <FinalCta />
+      <MurAnnonces />
+      <Etapes />
+      <CalculPose />
+      <Suivi />
+      <Comparaison />
+      <Sources />
+      <AppelFinal />
     </>
   );
 }
