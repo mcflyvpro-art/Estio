@@ -1,3 +1,5 @@
+import { fr } from "@/components/site/typo";
+
 /**
  * D'OÙ VIENNENT LES CHIFFRES · ce qui tient lieu de preuve.
  *
@@ -118,7 +120,7 @@ export function Sources() {
           {ENGAGEMENTS.map((e) => (
             <div key={e.titre} className="border-t border-encre pt-5">
               <h3 className="s-h3 text-encre">{e.titre}</h3>
-              <p className="s-body mt-3 max-w-[34em]">{e.texte}</p>
+              <p className="s-body mt-3 max-w-[34em]">{fr(e.texte)}</p>
             </div>
           ))}
         </div>

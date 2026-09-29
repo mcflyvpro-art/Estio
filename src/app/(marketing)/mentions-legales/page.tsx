@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { LegalPage } from "@/components/marketing/LegalPage";
+import { PageLegale } from "@/components/site/PageLegale";
 
 export const metadata: Metadata = {
   title: "Mentions légales",
@@ -9,14 +9,13 @@ export const metadata: Metadata = {
 
 export default function MentionsLegales() {
   return (
-    <LegalPage
-      eyebrow="Mentions"
-      title="Mentions légales"
-      intro="Qui édite ce service, qui l'héberge, et à qui appartiennent les données affichées."
+    <PageLegale
+      titre="Mentions légales"
+      chapo="Qui édite ce service, qui l'héberge, et à qui appartiennent les données affichées."
       sections={[
         {
           heading: "Éditeur du site",
-          body: "Estio — raison sociale, forme juridique, capital social, numéro RCS, siège social et numéro de TVA intracommunautaire à compléter avant mise en ligne.",
+          body: "Estio : raison sociale, forme juridique, capital social, numéro RCS, siège social et numéro de TVA intracommunautaire à compléter avant mise en ligne.",
         },
         {
           heading: "Directeur de la publication",
@@ -32,7 +31,7 @@ export default function MentionsLegales() {
         },
         {
           heading: "Sources de données publiques",
-          body: "Les données de marché proviennent de jeux de données publics et restent la propriété de leurs producteurs respectifs :\n\nBase adresse nationale (BAN) — adresses et géocodage.\nDemandes de valeurs foncières (DVF) — transactions notariées.\nCarte des loyers — loyers de référence.\nINSEE — tension locative, vacance, démographie.\nGéorisques — risques naturels et technologiques.\nADEME — diagnostics de performance énergétique.\n\nEstio en produit une synthèse et un calcul ; il n'en revendique pas la propriété et ne les revend pas.",
+          body: "Les données de marché proviennent de jeux de données publics et restent la propriété de leurs producteurs respectifs :\n\nBase adresse nationale (BAN) : adresses et géocodage.\nDemandes de valeurs foncières (DVF) : transactions notariées.\nCarte des loyers : loyers de référence.\nINSEE : tension locative, vacance, démographie.\nGéorisques : risques naturels et technologiques.\nADEME : diagnostics de performance énergétique.\n\nEstio en produit une synthèse et un calcul ; il n'en revendique pas la propriété et ne les revend pas.",
         },
         {
           heading: "Absence d'extraction des portails",

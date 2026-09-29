@@ -1,8 +1,6 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { motion, useReducedMotion } from "motion/react";
-import { EASE_FOCAL } from "@/design/tokens";
 import { cx } from "@/lib/cx";
 
 /**
@@ -11,44 +9,6 @@ import { cx } from "@/lib/cx";
  * Un écran vide n'est pas un écran raté : c'est le premier écran que voit un
  * nouvel utilisateur. Il est donc traité avec le même soin qu'un écran plein.
  */
-
-/* -------------------------------------------------------------------------- */
-
-/** Calage focal au défilement — le geste signature, version vitrine. */
-export function Reveal({
-  children,
-  delay = 0,
-  className,
-  cine = false,
-}: {
-  children: ReactNode;
-  delay?: number;
-  className?: string;
-  /** Tempo vitrine (1,2 s) plutôt que tempo outil (0,42 s). */
-  cine?: boolean;
-}) {
-  const reduce = useReducedMotion();
-
-  return (
-    <motion.div
-      className={className}
-      initial={
-        reduce
-          ? { opacity: 0 }
-          : { opacity: 0, y: cine ? 28 : 14, filter: "blur(10px)" }
-      }
-      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-      viewport={{ once: true, margin: "-12% 0px -8% 0px" }}
-      transition={
-        reduce
-          ? { duration: 0.3 }
-          : { duration: cine ? 1.2 : 0.5, ease: EASE_FOCAL, delay }
-      }
-    >
-      {children}
-    </motion.div>
-  );
-}
 
 /* -------------------------------------------------------------------------- */
 

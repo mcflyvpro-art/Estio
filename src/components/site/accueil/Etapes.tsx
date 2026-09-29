@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { fr } from "@/components/site/typo";
 
 /**
  * Comment ça marche. Quatre étapes, celles de l'outil, dans l'ordre où on les
@@ -45,7 +46,7 @@ export function Etapes() {
                 {i + 1}
               </span>
               <h3 className="s-h3 mt-5 text-encre">{e.titre}</h3>
-              <p className="s-body mt-3">{e.texte}</p>
+              <p className="s-body mt-3">{fr(e.texte)}</p>
               {e.lien && (
                 <Link href={e.lien.href} className="s-link s-small mt-4 inline-block">
                   {e.lien.label}

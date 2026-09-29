@@ -1,77 +1,73 @@
 import type { Metadata } from "next";
-import { PageHeader } from "@/components/marketing/PageHeader";
-import { ContactForm } from "@/components/marketing/ContactForm";
-import { Reveal } from "@/components/ui/Feedback";
-import { IconMail } from "@/components/ui/Icon";
+import { PageIntro } from "@/components/site/PageIntro";
+import { FormulaireContact } from "@/components/site/FormulaireContact";
+import { fr } from "@/components/site/typo";
 
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Une question, un chiffre qui cloche, un usage professionnel ? Écrivez-nous, on lit tout.",
+    "Un chiffre qui vous semble faux, une question, un usage professionnel : écrivez à l'équipe d'Estio.",
 };
 
-const CANAUX = [
+/**
+ * L'adresse de contact vient de l'environnement (`NEXT_PUBLIC_CONTACT_EMAIL`).
+ * Tant qu'elle n'est pas renseignée, la page le dit : on n'affiche pas une
+ * adresse qui n'existe pas, et on ne simule pas un envoi.
+ */
+const DESTINATAIRE = process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() || null;
+
+const RAISONS = [
   {
-    titre: "Un chiffre qui cloche",
+    titre: "Un chiffre qui vous semble faux",
     texte:
-      "C'est le message qui nous intéresse le plus. La qualité des données de marché est le vrai enjeu du produit — signalez-nous une valeur qui vous semble fausse, avec l'adresse concernée.",
+      "C'est le message le plus utile. La qualité des données est le vrai défi d'Estio. Donnez-nous l'adresse du bien et le chiffre qui vous étonne.",
   },
   {
-    titre: "Usage professionnel",
+    titre: "Un usage professionnel",
     texte:
-      "CGP, chasseur immobilier, marchand de biens : le plan Expert et le rapport en marque blanche se construisent avec vous. Dites-nous ce qu'il vous manque.",
+      "Conseiller en patrimoine, chasseur immobilier : la formule Expert se construit avec vous. Dites-nous ce qui vous manque.",
   },
   {
-    titre: "Presse",
-    texte:
-      "Pour un article, une interview ou des visuels du produit, écrivez-nous en précisant le média et votre échéance.",
+    titre: "La presse",
+    texte: "Précisez le média et votre date limite.",
   },
 ];
 
 export default function Contact() {
   return (
     <>
-      <PageHeader
-        eyebrow="Contact"
-        title="Dites-nous ce qui ne va pas."
-        intro="Les compliments font plaisir, mais ce sont les objections qui font le produit. Un chiffre douteux, une étape qui manque, une formule fiscale à revoir : on prend."
+      <PageIntro
+        titre="Écrivez-nous."
+        chapo="Les compliments font plaisir. Les objections font avancer le produit : un chiffre douteux, une étape qui manque, une règle fiscale à revoir."
       />
 
-      <section className="mx-auto max-w-[104rem] px-[var(--gutter)] pb-28">
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16">
-          <div>
-            <Reveal cine>
-              <a
-                href="mailto:contact@estio.immo"
-                className="group inline-flex items-center gap-3 text-[15px] text-text transition-colors hover:text-accent"
-              >
-                <span className="flex h-9 w-9 items-center justify-center rounded-sm border border-line text-text-3 transition-colors group-hover:border-accent-line group-hover:text-accent">
-                  <IconMail size={15} />
-                </span>
-                contact@estio.immo
-              </a>
-              <p className="mt-4 text-[13px] leading-relaxed text-text-3">
-                Réponse sous quelques jours ouvrés.
-              </p>
-            </Reveal>
-
-            <div className="mt-12 flex flex-col">
-              {CANAUX.map((c, i) => (
-                <Reveal key={c.titre} cine delay={i * 0.05}>
-                  <div className="border-t border-line-soft py-6">
-                    <h2 className="text-[14px] font-medium text-text">{c.titre}</h2>
-                    <p className="mt-2.5 max-w-md text-[13px] leading-relaxed text-text-3">
-                      {c.texte}
-                    </p>
-                  </div>
-                </Reveal>
+      <section className="s-container pb-24">
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
+          <div className="lg:col-span-5">
+            <ul className="border-t border-encre">
+              {RAISONS.map((r) => (
+                <li key={r.titre} className="border-b border-filet py-6">
+                  <h2 className="text-[19px] font-semibold text-encre">{r.titre}</h2>
+                  <p className="s-body mt-2">{fr(r.texte)}</p>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
 
-          <Reveal cine delay={0.1}>
-            <ContactForm />
-          </Reveal>
+          <div className="lg:col-span-7">
+            {DESTINATAIRE ? (
+              <FormulaireContact destinataire={DESTINATAIRE} />
+            ) : (
+              <div className="rounded-site border border-filet bg-feuille p-6 sm:p-8">
+                <h2 className="s-h3 text-encre">L&apos;adresse de contact arrive.</h2>
+                <p className="s-body mt-3 max-w-[34em]">
+                  Estio est en construction et son adresse e-mail n&apos;est pas encore
+                  ouverte. Plutôt qu&apos;un formulaire qui ne mènerait nulle part, nous
+                  publierons ici une adresse qui répond, dès qu&apos;elle existera.
+                </p>
+              </div>
+            )}
+          </div>
         </div>
       </section>
     </>

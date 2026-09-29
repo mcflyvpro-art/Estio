@@ -5,6 +5,7 @@ import { Etiquette } from "@/components/site/Etiquette";
 import { formatSimple } from "@/components/site/accueil/moteur";
 import { verdictFromScore } from "@/lib/verdict";
 import { cx } from "@/lib/cx";
+import { fr } from "@/components/site/typo";
 
 /**
  * LA COMPARAISON · deux finalistes, une priorité, un gagnant qui change.
@@ -201,7 +202,7 @@ export function Comparaison() {
         <div className="mt-4 rounded-site border border-filet bg-feuille p-5 sm:p-6" aria-live="polite">
           <p className="s-small font-semibold text-bleu">La réponse d&apos;Estio</p>
           <p className="mt-2 max-w-[44em] font-serif text-[21px] leading-snug text-encre">
-            {priorite.phrase(gagnant.nom, autre.nom)}
+            {fr(priorite.phrase(gagnant.nom, autre.nom))}
           </p>
           <p className="s-small mt-3 text-encre-3">
             Écart de {ecart}&nbsp;point{ecart > 1 ? "s" : ""} sur 100.

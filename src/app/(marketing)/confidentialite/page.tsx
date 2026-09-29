@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { LegalPage } from "@/components/marketing/LegalPage";
+import { PageLegale } from "@/components/site/PageLegale";
 
 export const metadata: Metadata = {
   title: "Politique de confidentialité",
@@ -9,10 +9,9 @@ export const metadata: Metadata = {
 
 export default function Confidentialite() {
   return (
-    <LegalPage
-      eyebrow="Confidentialité"
-      title="Politique de confidentialité"
-      intro="Vos projets, vos candidats et vos notes vous appartiennent. Voici précisément ce que nous conservons, et pourquoi."
+    <PageLegale
+      titre="Politique de confidentialité"
+      chapo="Vos projets, vos candidats et vos notes vous appartiennent. Voici précisément ce que nous conservons, et pourquoi."
       sections={[
         {
           heading: "Responsable de traitement",

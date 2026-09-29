@@ -1,38 +1,32 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { AuthPanel } from "@/components/marketing/AuthPanel";
-import { SignupForm } from "@/components/marketing/SignupForm";
+import { FormulaireInscription } from "@/components/site/FormulairesAcces";
 
 export const metadata: Metadata = {
   title: "Créer un compte",
   description:
-    "Ouvrez votre premier pipeline. Plan Free gratuit, sans carte bancaire : un projet, trois biens, le pré-verdict en illimité.",
+    "Créez votre compte Estio. La formule Free est gratuite et ne demande pas de carte bancaire.",
 };
 
 export default function Inscription() {
   return (
-    <AuthPanel
-      eyebrow="Premier pipeline"
-      title="Deux cents annonces vous attendent."
-      intro="Ouvrez un projet, capturez votre première annonce, et regardez-la chauffer. Le plan Free ne demande pas de carte bancaire."
-      claim={{
-        quote:
-          "Vous ne saisissez que le bien. L'adresse déverrouille le marché, vos curseurs font le reste — et le verdict se recalcule à chaque geste.",
-        source: "Ce que fait l'outil",
-      }}
-      footer={
-        <>
-          Vous avez déjà un compte ?{" "}
-          <Link
-            href="/connexion"
-            className="text-accent underline-offset-4 transition-opacity hover:underline hover:opacity-80"
-          >
+    <section className="s-container py-16 lg:py-24">
+      <div className="mx-auto max-w-[28rem]">
+        <h1 className="s-h2 text-encre">Créez votre compte.</h1>
+        <p className="s-body mt-4">
+          Gratuit pour commencer, sans carte bancaire. Votre première annonce suffit pour
+          voir ce qu&apos;Estio en dit.
+        </p>
+        <div className="mt-10">
+          <FormulaireInscription />
+        </div>
+        <p className="s-small mt-8 border-t border-filet pt-6 text-encre-2">
+          Vous avez déjà un compte&#8239;?{" "}
+          <Link href="/connexion" className="s-link">
             Se connecter
           </Link>
-        </>
-      }
-    >
-      <SignupForm />
-    </AuthPanel>
+        </p>
+      </div>
+    </section>
   );
 }

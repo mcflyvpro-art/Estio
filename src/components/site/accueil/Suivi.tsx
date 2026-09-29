@@ -7,6 +7,7 @@ import {
 } from "@/components/site/accueil/moteur";
 import { STATUS_COLUMNS, type PropertyStatus } from "@/lib/pipeline-types";
 import { cx } from "@/lib/cx";
+import { fr } from "@/components/site/typo";
 
 /**
  * LE SUIVI · une recherche entière, rangée par étape.
@@ -90,7 +91,7 @@ export function Suivi() {
           <Etiquette className="ml-auto" />
         </div>
 
-        <div className="mt-4 overflow-x-auto pb-2" tabIndex={0} aria-label="Tableau de suivi d'exemple">
+        <div className="relative mt-4 overflow-x-auto pb-2" tabIndex={0} aria-label="Tableau de suivi d'exemple">
           <div className="grid min-w-[900px] grid-cols-6 gap-3">
             {STATUS_COLUMNS.map((col) => {
               const cartes = CARTES.filter((c) => c.statut === col.key);
@@ -145,7 +146,7 @@ function CarteBien({ carte }: { carte: Carte }) {
             pleine ? "border-encre-2 text-feuille" : "border-filet text-encre-2",
           )}
         >
-          {carte.note}
+          {fr(carte.note)}
         </p>
       )}
     </li>

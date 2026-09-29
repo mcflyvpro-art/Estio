@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { LegalPage } from "@/components/marketing/LegalPage";
+import { PageLegale } from "@/components/site/PageLegale";
 
 export const metadata: Metadata = {
   title: "Conditions générales d'utilisation",
@@ -8,10 +8,9 @@ export const metadata: Metadata = {
 
 export default function Cgu() {
   return (
-    <LegalPage
-      eyebrow="Conditions"
-      title="Conditions générales d'utilisation"
-      intro="Ce que le service fait, ce qu'il ne fait pas, et ce qui relève de votre responsabilité."
+    <PageLegale
+      titre="Conditions générales d'utilisation"
+      chapo="Ce que le service fait, ce qu'il ne fait pas, et ce qui relève de votre responsabilité."
       sections={[
         {
           heading: "Objet",
