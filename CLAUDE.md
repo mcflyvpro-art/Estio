@@ -72,11 +72,23 @@ Trois paliers (placeholders, à affiner) : **Free** (créer l'habitude + viralit
 - **Périmètre géographique : France entière** (décision utilisateur — on ne restreint pas à 1-2 villes). ⚠ Corollaire : la **fiabilité de N2** (DVF crade, granularité imparfaite) est le vrai risque produit à surveiller — voir `ARCHITECTURE.md` risques.
 - **Hors-scope :** scraping automatique à grande échelle · extension navigateur · agrégation multi-portails · prédictions de marché « garanties » · conseil en investissement réglementé (on est un **outil d'aide à la décision** → disclaimers).
 
-## Identité & UX — système « FOCALE » v2 (en place)
+## Site public (vitrine) — `DESIGN.md`
+
+> **Le site public ne suit plus FOCALE.** Depuis la refonte « dossier bien tenu », l'accueil,
+> les pages annexes, l'en-tête, le pied de page, la 404 et la page d'erreur suivent
+> **`DESIGN.md`** (valeurs : `src/design/site.css`, composants : `src/components/site/`).
+> Papier clair, encre graphite, bleu stylo `#23408E` pour les actions, Newsreader +
+> Schibsted Grotesk, rayon unique de 6 px, aucune animation d'ambiance. Toute modification
+> du site passe d'abord par `DESIGN.md`. Les démonstrations de l'accueil font tourner le
+> vrai moteur (`src/components/site/accueil/moteur.ts` → `lib/calc/metrics.ts`) : si le
+> moteur change, relancer `scripts/generer-visuels-site.mjs` (l'image de partage cite ses
+> chiffres).
+
+## Identité & UX de l'outil — système « FOCALE » v2 (en place)
 
 > Source de vérité : `src/design/tokens.css` (valeurs) · `docs/brand/estio-brandkit.md`
 > (le pourquoi) · `src/lib/glossary.ts` (tous les termes) · `src/lib/verdict.ts` (le
-> langage de verdict).
+> langage de verdict). S'applique à l'outil (`/app`), plus au site public.
 
 **Concept directeur : la mise au point optique.** Deux cents annonces dérivent dans le
 noir, floues ; une seule entre dans le plan de netteté.

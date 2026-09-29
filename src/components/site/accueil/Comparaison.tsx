@@ -98,8 +98,7 @@ export function Comparaison() {
       <div className="s-container s-section">
         <div className="max-w-[40em]">
           <h2 className="s-h2 text-encre">
-            Deux appartements vous plaisent.{" "}
-            <span className="whitespace-nowrap">Qu&apos;est-ce</span> qui compte pour vous&#8239;?
+            Deux appartements vous plaisent. Qu&apos;est-&#8288;ce qui compte pour vous&#8239;?
           </h2>
           <p className="s-lead mt-6">
             Choisissez votre priorité. Le classement change avec elle, et Estio explique

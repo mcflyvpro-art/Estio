@@ -1,7 +1,7 @@
 // Génère les images fixes du site public à partir du logo et des polices du site :
 //   src/app/icon.svg            favicon vectoriel (clair et sombre)
 //   src/app/apple-icon.png      180 × 180, écran d'accueil iOS
-//   src/app/opengraph-image.png 1200 × 630, image de partage
+//   public/image-partage.png    1200 × 630, image de partage
 //   src/app/favicon.ico         16, 32 et 48 px, pour les navigateurs sans SVG
 //
 // Usage :
@@ -59,7 +59,6 @@ const partage = `<!doctype html><html><head><style>${polices}
 html,body{margin:0;width:1200px;height:630px;background:${PAPIER};color:${ENCRE};font-family:"Schibsted",sans-serif;overflow:hidden}
 .gauche{position:absolute;left:80px;top:64px;width:580px}
 .logo{display:block;height:40px}
-.insecable{white-space:nowrap}
 h1{margin:64px 0 0;font-family:"Newsreader",serif;font-weight:400;font-size:66px;line-height:1.04;letter-spacing:-0.018em;font-optical-sizing:auto}
 .chapo{margin:28px 0 0;font-family:"Newsreader",serif;font-size:26px;line-height:1.4;color:#474b52}
 .carte{position:absolute;left:720px;top:168px;width:400px;box-sizing:border-box;padding:32px;background:#fff;border:1px solid #dedcd5;border-radius:6px}
@@ -71,7 +70,7 @@ h1{margin:64px 0 0;font-family:"Newsreader",serif;font-weight:400;font-size:66px
 </style></head><body>
 <div class="gauche">
 <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="316 356 936 256" fill="${ENCRE}">${chemins([...MARK, ...WORD])}</svg>
-<h1>Cet appartement <span class="insecable">est-il</span> un bon investissement&#8239;?</h1>
+<h1>Cet appartement est-&#8288;il un bon investissement&#8239;?</h1>
 <p class="chapo">Estio calcule la mensualité, le loyer du secteur et ce qu’il vous restera chaque mois.</p>
 </div>
 <div class="carte">
@@ -97,7 +96,7 @@ async function rendre(html, largeur, hauteur, sortie) {
   return png;
 }
 
-await rendre(partage, 1200, 630, resolve(RACINE, "src/app/opengraph-image.png"));
+await rendre(partage, 1200, 630, resolve(RACINE, "public/image-partage.png"));
 await rendre(pictogramme(180, PAPIER), 180, 180, resolve(RACINE, "src/app/apple-icon.png"));
 
 // favicon.ico : un en-tête, une entrée par taille, puis les PNG tels quels.
@@ -123,4 +122,4 @@ const entrees = images.map((png, i) => {
   return e;
 });
 writeFileSync(resolve(RACINE, "src/app/favicon.ico"), Buffer.concat([entete, ...entrees, ...images]));
-console.log("Images générées : icon.svg, apple-icon.png, opengraph-image.png, favicon.ico.");
+console.log("Images générées : icon.svg, apple-icon.png, image-partage.png, favicon.ico.");
