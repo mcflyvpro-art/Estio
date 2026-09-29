@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
+import { metaPage } from "@/components/site/meta";
 import Link from "next/link";
 import { PageIntro } from "@/components/site/PageIntro";
 import { fr } from "@/components/site/typo";
 import { IconPlus } from "@/components/ui/Icon";
 
-export const metadata: Metadata = {
-  title: "Questions",
-  description:
-    "D'où viennent les chiffres, ce que fait l'IA et ce qu'elle ne fait pas, ce qui est gratuit, ce qui reste approximatif : les réponses franches sur Estio.",
-};
+export const metadata: Metadata = metaPage(
+  "Questions",
+  "D'où viennent les chiffres, ce que fait l'IA et ce qu'elle ne fait pas, ce qui est gratuit, ce qui reste approximatif : les réponses franches sur Estio.",
+);
 
 /**
  * Les réponses disent aussi ce qui désavantage le produit : précision

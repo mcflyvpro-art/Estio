@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
+import { metaPage } from "@/components/site/meta";
 import { PageLegale } from "@/components/site/PageLegale";
 
-export const metadata: Metadata = {
-  title: "Politique de confidentialité",
-  description:
-    "Quelles données Estio collecte, pourquoi, combien de temps, et comment exercer vos droits.",
-};
+export const metadata: Metadata = metaPage(
+  "Politique de confidentialité",
+  "Quelles données Estio collecte, pourquoi, combien de temps, et comment exercer vos droits.",
+);
 
 export default function Confidentialite() {
   return (
@@ -27,7 +27,7 @@ export default function Confidentialite() {
         },
         {
           heading: "Finalités",
-          body: "Fournir le service : constituer et piloter vos pipelines, calculer les analyses, générer les arbitrages.\n\nGérer votre compte et votre abonnement.\n\nAssurer la sécurité du service et prévenir les usages abusifs.\n\nAméliorer le produit, sur la base de données agrégées et non identifiantes.",
+          body: "Fournir le service : constituer et suivre vos recherches, calculer les analyses, rédiger les comparaisons.\n\nGérer votre compte et votre abonnement.\n\nAssurer la sécurité du service et prévenir les usages abusifs.\n\nAméliorer le produit, sur la base de données agrégées et non identifiantes.",
         },
         {
           heading: "Sous-traitants",

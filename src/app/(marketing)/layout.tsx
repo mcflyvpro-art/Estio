@@ -1,6 +1,12 @@
+import type { Viewport } from "next";
 import { POLICES_SITE } from "@/app/polices-site";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
+
+/** Le site est toujours clair : la barre du navigateur mobile aussi. */
+export const viewport: Viewport = {
+  themeColor: "#fafaf7",
+};
 
 /**
  * Le site public. Ses règles sont dans DESIGN.md, ses valeurs dans

@@ -75,11 +75,6 @@
   --e-out: cubic-bezier(0.2, 0, 0, 1);
   --e-focal: cubic-bezier(0.16, 1, 0.3, 1);
   --e-swing: cubic-bezier(0.65, 0, 0.35, 1);
-
-  /* --- GRILLE & MESURE — vitrine. ---------------------------------------- */
-  --gutter: 5vw;
-  --measure: 68ch;
-  --shell-max: 108rem;
 }
 
 /* La densité compacte ne touche qu'une mesure : la hauteur de rangée. */

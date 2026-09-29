@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
+import { metaPage } from "@/components/site/meta";
 import { PageLegale } from "@/components/site/PageLegale";
 
-export const metadata: Metadata = {
-  title: "Mentions légales",
-  description:
-    "Éditeur, hébergeur, propriété intellectuelle et sources de données publiques d'Estio.",
-};
+export const metadata: Metadata = metaPage(
+  "Mentions légales",
+  "Éditeur, hébergeur, propriété intellectuelle et sources de données publiques d'Estio.",
+);
 
 export default function MentionsLegales() {
   return (

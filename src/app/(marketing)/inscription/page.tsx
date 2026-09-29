@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
+import { metaPage } from "@/components/site/meta";
 import Link from "next/link";
 import { FormulaireInscription } from "@/components/site/FormulairesAcces";
 
-export const metadata: Metadata = {
-  title: "Créer un compte",
-  description:
-    "Créez votre compte Estio. La formule Free est gratuite et ne demande pas de carte bancaire.",
-};
+export const metadata: Metadata = metaPage(
+  "Créer un compte",
+  "Créez votre compte Estio. La formule Free est gratuite et ne demande pas de carte bancaire.",
+);
 
 export default function Inscription() {
   return (

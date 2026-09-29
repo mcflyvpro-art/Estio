@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
+import { metaPage } from "@/components/site/meta";
 import { PageIntro } from "@/components/site/PageIntro";
 import { BoutonLien } from "@/components/site/Bouton";
 import { IconArrowRight } from "@/components/ui/Icon";
 import { STATUS_COLUMNS, type PropertyStatus } from "@/lib/pipeline-types";
 import { fr } from "@/components/site/typo";
 
-export const metadata: Metadata = {
-  title: "Comment ça marche",
-  description:
-    "Ouvrez un projet, ajoutez vos annonces par capture, lisez le calcul, suivez chaque bien jusqu'à l'offre et choisissez entre vos finalistes.",
-};
+export const metadata: Metadata = metaPage(
+  "Comment ça marche",
+  "Ouvrez un projet, ajoutez vos annonces par capture, lisez le calcul, suivez chaque bien jusqu'à l'offre et choisissez entre vos finalistes.",
+);
 
 const ETAPES = [
   {

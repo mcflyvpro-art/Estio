@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import { ThemeScript } from "@/components/providers/ThemeScript";
+import { ADRESSE_SITE } from "@/lib/adresse-site";
 import "./globals.css";
 
 /**
@@ -28,12 +29,13 @@ const mono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Estio — le pipeline de décision de l'investisseur immobilier",
-    template: "%s — Estio",
+    default: "Estio · Savoir si une annonce immobilière est un bon investissement",
+    template: "%s · Estio",
   },
   description:
-    "Deux cents annonces, une décision. Estio pilote votre recherche d'achat du repérage à l'offre : capture universelle, données de marché officielles, moteur de calcul déterministe, arbitrage entre finalistes.",
-  metadataBase: new URL("https://estio.immo"),
+    "Ajoutez la capture d'une annonce. Estio calcule la mensualité, le loyer du secteur et ce qu'il vous restera chaque mois, puis suit toute votre recherche jusqu'à l'offre.",
+  applicationName: "Estio",
+  metadataBase: new URL(ADRESSE_SITE),
 };
 
 export const viewport: Viewport = {

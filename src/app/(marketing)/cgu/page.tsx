@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import { metaPage } from "@/components/site/meta";
 import { PageLegale } from "@/components/site/PageLegale";
 
-export const metadata: Metadata = {
-  title: "Conditions générales d'utilisation",
-  description: "Conditions générales d'utilisation du service Estio.",
-};
+export const metadata: Metadata = metaPage(
+  "Conditions générales d'utilisation",
+  "Conditions générales d'utilisation du service Estio.",
+);
 
 export default function Cgu() {
   return (
@@ -18,7 +19,7 @@ export default function Cgu() {
         },
         {
           heading: "Nature du service",
-          body: "Estio agrège des données publiques, applique un moteur de calcul déterministe et restitue des analyses comparatives. Il s'agit d'un outil d'aide à la décision.\n\nEstio ne fournit pas de conseil en investissement au sens réglementaire, ne réalise aucune recommandation personnalisée et n'exerce aucune activité d'intermédiation. Les résultats affichés sont des indicateurs, pas des préconisations.",
+          body: "Estio agrège des données publiques, applique des formules de calcul fixes et restitue des analyses comparatives. Il s'agit d'un outil d'aide à la décision.\n\nEstio ne fournit pas de conseil en investissement au sens réglementaire, ne réalise aucune recommandation personnalisée et n'exerce aucune activité d'intermédiation. Les résultats affichés sont des indicateurs, pas des préconisations.",
         },
         {
           heading: "Sources de données et exactitude",

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { metaPage } from "@/components/site/meta";
 import { Hero } from "@/components/site/accueil/Hero";
 import { MurAnnonces } from "@/components/site/accueil/MurAnnonces";
 import { Etapes } from "@/components/site/accueil/Etapes";
@@ -8,11 +9,11 @@ import { Comparaison } from "@/components/site/accueil/Comparaison";
 import { Sources } from "@/components/site/accueil/Sources";
 import { AppelFinal } from "@/components/site/accueil/AppelFinal";
 
-export const metadata: Metadata = {
-  title: { absolute: "Estio · Savoir si une annonce immobilière est un bon investissement" },
-  description:
-    "Ajoutez la capture d'une annonce. Estio calcule la mensualité, le loyer du secteur et ce qu'il vous restera chaque mois, puis suit toute votre recherche jusqu'à l'offre.",
-};
+export const metadata: Metadata = metaPage(
+  "Estio · Savoir si une annonce immobilière est un bon investissement",
+  "Ajoutez la capture d'une annonce. Estio calcule la mensualité, le loyer du secteur et ce qu'il vous restera chaque mois, puis suit toute votre recherche jusqu'à l'offre.",
+  { absolu: true },
+);
 
 /**
  * L'accueil, dans l'ordre où un primo-investisseur se pose les questions :

@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import { metaPage } from "@/components/site/meta";
 import Link from "next/link";
 import { FormulaireConnexion } from "@/components/site/FormulairesAcces";
 
-export const metadata: Metadata = {
-  title: "Se connecter",
-  description: "Retrouvez vos projets, vos annonces et vos notes.",
-};
+export const metadata: Metadata = metaPage(
+  "Se connecter",
+  "Retrouvez vos projets, vos annonces et vos notes.",
+);
 
 export default function Connexion() {
   return (

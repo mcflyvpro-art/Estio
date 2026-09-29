@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
+import { metaPage } from "@/components/site/meta";
 import { PageIntro } from "@/components/site/PageIntro";
 import { BoutonLien } from "@/components/site/Bouton";
 import { fr } from "@/components/site/typo";
 import { IconArrowRight } from "@/components/ui/Icon";
 
-export const metadata: Metadata = {
-  title: "À propos",
-  description:
-    "Pourquoi Estio existe, les principes qui guident sa construction, et ce que nous refusons de faire.",
-};
+export const metadata: Metadata = metaPage(
+  "À propos",
+  "Pourquoi Estio existe, les principes qui guident sa construction, et ce que nous refusons de faire.",
+);
 
 const CONVICTIONS = [
   {

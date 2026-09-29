@@ -22,7 +22,10 @@ export function Hero() {
     <section className="s-container pb-24 pt-14 lg:pb-32 lg:pt-20">
       <div className="grid gap-14 xl:grid-cols-12 xl:gap-8">
         <div className="max-w-[40rem] xl:col-span-5 xl:pt-6">
-          <h1 className="s-h1 text-encre">Cet appartement est-il un bon investissement&#8239;?</h1>
+          <h1 className="s-h1 text-encre">
+            Cet appartement <span className="whitespace-nowrap">est-il</span> un bon
+            investissement&#8239;?
+          </h1>
 
           <p className="s-lead mt-7 max-w-[34em]">
             Ajoutez la capture d&apos;écran d&apos;une annonce. Estio calcule la

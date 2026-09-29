@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
+import { metaPage } from "@/components/site/meta";
 import { PageIntro } from "@/components/site/PageIntro";
 import { Formules } from "@/components/site/Formules";
 import { fr } from "@/components/site/typo";
 
-export const metadata: Metadata = {
-  title: "Formules",
-  description:
-    "Free, Pro et Expert. Savoir si une annonce vaut le coup reste gratuit. Les formules payantes ajoutent la précision et le suivi. Tarifs indicatifs.",
-};
+export const metadata: Metadata = metaPage(
+  "Formules",
+  "Free, Pro et Expert. Savoir si une annonce vaut le coup reste gratuit. Les formules payantes ajoutent la précision et le suivi. Tarifs indicatifs.",
+);
 
 const PRINCIPES = [
   {

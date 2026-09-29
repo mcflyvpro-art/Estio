@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
+import { metaPage } from "@/components/site/meta";
 import { PageIntro } from "@/components/site/PageIntro";
 import { FormulaireContact } from "@/components/site/FormulaireContact";
 import { fr } from "@/components/site/typo";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description:
-    "Un chiffre qui vous semble faux, une question, un usage professionnel : écrivez à l'équipe d'Estio.",
-};
+export const metadata: Metadata = metaPage(
+  "Contact",
+  "Un chiffre qui vous semble faux, une question, un usage professionnel : écrivez à l'équipe d'Estio.",
+);
 
 /**
  * L'adresse de contact vient de l'environnement (`NEXT_PUBLIC_CONTACT_EMAIL`).
